@@ -6,15 +6,10 @@ class Deal < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
 
-  after_save :update_total_price_if_multiple_items
-
   accepts_nested_attributes_for :deal_items, allow_destroy: true
 
-  private
-
-  def update_total_price_if_multiple_items
-    if deal_items.count > 1
-      update_columns(total_price: items.sum(:price))
-    end
+  def update_total_price
+    total = deal_items.sum(:deal_price)
+    update_column(:total_price, total)
   end
 end

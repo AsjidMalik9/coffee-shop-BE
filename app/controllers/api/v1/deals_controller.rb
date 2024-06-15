@@ -19,6 +19,7 @@ module Api
         
         if @deal.save
           create_deal_items
+          @deal.update_total_price
           render json: DealSerializer.new(@deal), status: :created
         else
           render json: @deal.errors, status: :unprocessable_entity
