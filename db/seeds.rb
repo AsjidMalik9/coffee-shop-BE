@@ -25,7 +25,7 @@ ActiveRecord::Base.transaction do
   DealItem.create(deal: deal2, item: item2, deal_price: item2.price - 2.0) # Assuming a discount for deal price
   DealItem.create(deal: deal2, item: item1, deal_price: item1.price - 2.0)
 
-    # Associate items with the deal
+  # Associate items with the deal
   DealItem.create(deal: deal, item: item1, deal_price: 5.0)
   DealItem.create(deal: deal, item: item2, deal_price: 8.0)
   DealItem.create(deal: deal, item: item3, deal_price: 4.0)

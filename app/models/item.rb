@@ -1,6 +1,4 @@
 class Item < ApplicationRecord
-  before_validation :set_deal_price, on: :create, if: :deal?
-
   validates :name, presence: true
   validates :discount_type, inclusion: { in: Constants::DISCOUNT_TYPES.values }
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
@@ -41,16 +39,5 @@ class Item < ApplicationRecord
 
   def deal?
     !deal_items.empty?
-  end
-
-  private
-
-  def set_deal_price
-    total = 0
-    deal_items.each do |item|
-      total += item.price
-    end
-
-    self.price = total
   end
 end
