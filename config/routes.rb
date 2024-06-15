@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :deals, only: [:index, :create, :update, :show, :destroy]
-      resources :items, only: %i[index show]
+      resources :items, only: %i[index show create update destroy]
       resources :orders, only: %i[index create update]
     end
   end

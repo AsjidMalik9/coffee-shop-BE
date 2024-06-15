@@ -1,7 +1,7 @@
 class DealSerializer
   include JSONAPI::Serializer
 
-  attributes :name, :description, :overall_discount
+  attributes :name, :description, :overall_discount, :total_price
 
   attribute :start_date do |object|
     format_date(object.start_date)
