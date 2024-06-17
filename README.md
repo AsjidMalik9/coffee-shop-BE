@@ -1,6 +1,3 @@
-# Coffee Shop
-
-This is a Rails application for a coffee shop that allows customers to place orders and view the menu. The application uses a PostgreSQL database and the `jsonapi_serializer` gem to serialize data for the APIs.
 
 ## Prerequisites
 
